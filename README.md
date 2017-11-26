@@ -2,41 +2,37 @@
 
 This is an implementation of the Toy Robot Simulator.
 
-## Installation
+## Installation (Local)
 
-Add this line to your application's Gemfile:
+Build the gem from the gemspec:
 
-```ruby
-gem 'trs'
-```
+    $ gem build trs.gemspec
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Install the gem:
 
     $ gem install trs
 
 ## Usage
 
 ##### Interactive Mode
-Run by runtime command input:
-```sh
-  trs play
-```
-Options:
-  -l, [--length=N] # Default: 5
-  -w, [--width=N] # Default: 5
+
+Run interactively via command line input:
+
+    $ trs play
+
+Specify table dimensions:
+
+    $ trs play -l=10 -w=10
 
 ##### Output Mode
-Run by scanning a file:
-```shell
-  trs output [PATH TO FILE]
-```
-Options:
-  -l, [--length=N]  # Default: 5
-  -w, [--width=N]   # Default: 5
+
+Run by feeding a series of commands thru a file:
+
+    $ trs output [PATH TO FILE]
+
+Specify table dimensions:
+
+    $ trs output [PATH TO FILE] -l=10 -w=10
 
 ## Description
 - The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
@@ -47,11 +43,11 @@ be allowed.
 
 Create an application that can read in commands of the following form
 
-PLACE X,Y,F
-MOVE
-LEFT
-RIGHT
-REPORT
+- PLACE X,Y,F
+- MOVE
+- LEFT
+- RIGHT
+- REPORT
 
 - PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST.
 - The origin (0,0) can be considered to be the SOUTH WEST most corner.
@@ -71,18 +67,21 @@ Any move that would cause the robot to fall must be ignored.
 ## Example Input and Output
 
 a)
+
     PLACE 0,0,NORTH
     MOVE
     REPORT
     Output: 0,1,NORTH
 
 b)
+
     PLACE 0,0,NORTH
     LEFT
     REPORT
     Output: 0,0,WEST
 
 c)
+
     PLACE 1,2,EAST
     MOVE
     MOVE
@@ -101,7 +100,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/trs.
+Bug reports and pull requests are welcome on GitHub at https://github.com/katpadi/trs.
 
 
 ## License
