@@ -8,24 +8,24 @@ module Commands
 
     def execute(args = nil)
       if args.nil? || args.split(',').count != 3
-        return ::Msg.error(::Msg::INVALID_ARGS)
+        return ::Msg::INVALID_ARGS
       end
 
       x_pos, y_pos, cardinal_dir = parse(args)
 
       unless valid_cardinal?(cardinal_dir)
-        return ::Msg.error(::Msg::UNDEFINED_CARDINAL)
+        return ::Msg::UNDEFINED_CARDINAL
       end
 
       unless valid_position?(x_pos, y_pos)
-        return ::Msg.error(::Msg::OUT_OF_BOUNDS)
+        return ::Msg::OUT_OF_BOUNDS
       end
 
       @robot.x = x_pos
       @robot.y = y_pos
       @robot.i = Robot::COMPASS.keys.index(cardinal_dir)
       @robot.f = cardinal_dir
-      @robot.report
+      ::Msg::OK
     end
 
     private

@@ -7,7 +7,7 @@ describe Commands::Left do
   describe '#execute' do
     it 'should not allow unitialized robot' do
       issue_left = ::Commands::Left.new(subject).execute
-      expect(issue_left).to eq(::Msg.error(::Msg::UNINITIALIZED))
+      expect(issue_left).to eq(::Msg::UNINITIALIZED)
       expect(subject.f).to be_nil
     end
 

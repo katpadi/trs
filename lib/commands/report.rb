@@ -8,9 +8,9 @@ module Commands
 
     def execute(args = nil)
       unless @robot.placed?
-        return ::Msg.error(::Msg::UNINITIALIZED)
+        return ::Msg::UNINITIALIZED
       end
-      ::Msg.say "X: #{robot.x}, Y: #{robot.y}, F: #{robot.f}"
+      "X: #{robot.x}, Y: #{robot.y}, F: #{robot.f}"
     end
   end
 end

@@ -8,12 +8,12 @@ module Commands
 
     def execute(args = nil)
       unless @robot.placed?
-        return ::Msg.error(::Msg::UNINITIALIZED)
+        return ::Msg::UNINITIALIZED
       end
 
       @robot.i = (@robot.i - 1) % Robot::COMPASS.size
       @robot.f = ::Robot::COMPASS.keys[@robot.i]
-      @robot.report
+      ::Msg::OK
     end
   end
 end

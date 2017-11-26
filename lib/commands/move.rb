@@ -10,7 +10,7 @@ module Commands
 
     def execute(args = nil)
       unless @robot.placed?
-        return ::Msg.error(::Msg::UNINITIALIZED)
+        return ::Msg::UNINITIALIZED
       end
 
       axis = Robot::COMPASS[@robot.f].keys[0]
@@ -18,10 +18,10 @@ module Commands
       step = args.to_i > 0 ? args.to_i : DEFAULT_STEP
       axis_value = @robot.send(axis).send(object_msg, step)
       if @robot.out_of_bounds?(axis_value)
-        return ::Msg.error(::Msg::OUT_OF_BOUNDS)
+        return ::Msg::OUT_OF_BOUNDS
       end
       @robot.send("#{axis}=", axis_value)
-      @robot.report
+      ::Msg::OK
     end
   end
 end

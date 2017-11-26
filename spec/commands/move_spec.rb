@@ -7,7 +7,7 @@ describe Commands::Move do
   describe '#execute' do
     it 'should not allow unitialized robot' do
       issue_left = ::Commands::Move.new(subject).execute
-      expect(issue_left).to eq(::Msg.error(::Msg::UNINITIALIZED))
+      expect(issue_left).to eq(::Msg::UNINITIALIZED)
       expect(subject.f).to be_nil
     end
 
@@ -26,7 +26,7 @@ describe Commands::Move do
       subject.place('4,4,NORTH')
       subject_before = subject
       result = subject.move
-      expect(result).to eq(::Msg.error(::Msg::OUT_OF_BOUNDS))
+      expect(result).to eq(::Msg::OUT_OF_BOUNDS)
       expect(subject.y).to eq(subject_before.y)
       expect(subject.x).to eq(subject_before.x)
       expect(subject.f).to eq(subject_before.f)
