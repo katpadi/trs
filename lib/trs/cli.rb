@@ -1,5 +1,4 @@
 require "thor"
-require "colorize"
 require "trs"
 
 module Trs

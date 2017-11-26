@@ -12,7 +12,7 @@ class CommandCenter
     command_input = "#{command_input}".downcase
 
     unless VALID.include?(command_input)
-      return '[ERROR]: Invalid command'.red
+      return ::Msg::INVALID_COMMAND
     end
 
     @robot.send(:"#{command_input}", args)

@@ -1,5 +1,4 @@
 require "trs/version"
-require "colorize"
 require 'command_center'
 require 'table'
 require 'robot'
