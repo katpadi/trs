@@ -6,7 +6,7 @@ module Commands
     end
 
     def execute(args = nil)
-      if @robot.uninitialized?
+      unless @robot.placed?
         return ::Msg.error(::Msg::UNINITIALIZED)
       end
 

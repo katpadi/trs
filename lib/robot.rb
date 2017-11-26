@@ -36,8 +36,8 @@ class Robot
     ::Commands::Place.new(self).execute(args)
   end
 
-  def uninitialized?
-    x.nil? || y.nil?|| f.nil? || i.nil?
+  def placed?
+    !(x.nil? || y.nil?|| f.nil? || i.nil?)
   end
 
   def out_of_bounds?(value)

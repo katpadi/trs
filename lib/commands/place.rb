@@ -7,11 +7,7 @@ module Commands
     end
 
     def execute(args = nil)
-      if args.nil?
-        return ::Msg.error(::Msg::REQUIRED_ARGS)
-      end
-
-      if args.split(',').count != 3
+      if args.nil? || args.split(',').count != 3
         return ::Msg.error(::Msg::INVALID_ARGS)
       end
 
