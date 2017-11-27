@@ -24,6 +24,19 @@ Specify table dimensions:
 
     $ trs play -l=10 -w=10
 
+Auto-report position after every command:
+
+    $ trs play -r=true
+
+Commands while inside interactive mode:
+* __PLACE__  -  Specifies position of robot in X,Y,F format.
+            _i.e.  : PLACE 1,1,SOUTH_
+* __MOVE__   -  Moves robot X unit forward in the direction it is currently facing
+            _i.e.  : MOVE or MOVE 2_
+* __LEFT__   -  Rotates robot 90 degrees to the left
+* __RIGHT__  -  Rotates robot 90 degrees to the right
+* __REPORT__ -  Shouts the current position
+
 ##### Output Mode
 
 Run by feeding a series of commands thru a file:
@@ -59,12 +72,12 @@ Create an application that can read in commands of the following form
 - Input can be from a file, or from standard input, as the developer chooses.
 - Provide test data to exercise the application.
 
-## Constraints
+### Constraints
 
 The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
 Any move that would cause the robot to fall must be ignored.
 
-## Example Input and Output
+### Example Input and Output
 
 a)
 

@@ -50,7 +50,9 @@ module Trs
 
           Valid Commands:
           PLACE  -  Specifies position of robot in X,Y,F format.
-          MOVE   -  Moves robot one unit forward in the direction it is currently facing
+                    i.e.  : PLACE 1,1,SOUTH
+          MOVE   -  Moves robot X unit forward in the direction it is currently facing
+                    i.e.  : MOVE or MOVE 2
           LEFT   -  Rotates robot 90 degrees to the left
           RIGHT  -  Rotates robot 90 degrees to the right
           REPORT -  Shouts the current position
