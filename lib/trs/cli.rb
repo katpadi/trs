@@ -3,7 +3,7 @@ require "trs"
 
 module Trs
   class CLI < Thor
-    desc 'output [PATH TO FILE]', 'print out the contents of file'
+    desc 'output [PATH TO FILE]', 'Analyze and print out the final position of robot from a series of commands from a file'
     method_option :length, type: :numeric, default: 5, aliases: "-l"
     method_option :width,  type: :numeric, default: 5, aliases: "-w"
     def output(file_name)
@@ -19,11 +19,13 @@ module Trs
         puts "COMMAND ##{line_num += 1}: #{text}"
         puts command_ctr.analyze(text)
       end
+      puts robot.report
     end
 
-    desc 'play', 'Starts the Toy Robot Simulator app'
-    method_option :length, type: :numeric, default: 5, aliases: "-l"
-    method_option :width,  type: :numeric, default: 5, aliases: "-w"
+    desc 'play', 'Interactive client that analyzes and prints out the position of robot'
+    method_option :length, type: :numeric, default: 5, aliases: "-l", desc: 'Length of table'
+    method_option :width,  type: :numeric, default: 5, aliases: "-w", desc: 'Width of table'
+    method_option :auto_report,  type: :boolean, default: false, aliases: "-r", desc: 'Auto-reports after every command if set to true'
     def play
       say welcome_greeting, :yellow
       table = Table.new(options[:length], options[:width])
@@ -36,6 +38,7 @@ module Trs
           break
         else
           puts command_ctr.analyze(input)
+          puts robot.report if options[:auto_report]
         end
       end
     end
